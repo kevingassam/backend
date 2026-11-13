@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: letter; margin: 1.6cm; }
+  body { font-family: Helvetica; font-size: 10pt; color: #1f2937; }
+  h1 { font-size: 20pt; color: #4338ca; margin: 0 0 4pt 0; }
+  .muted { color: #6b7280; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; border-bottom: 1px solid #9ca3af; padding: 4pt 2pt; font-size: 9pt; color: #374151; }
+  td { padding: 5pt 2pt; border-bottom: 0.5px solid #e5e7eb; vertical-align: top; }
+  .r { text-align: right; }
+  .totals td { border: none; padding: 3pt 2pt; }
+  .grand td { font-weight: bold; font-size: 12pt; border-top: 1px solid #9ca3af; }
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <td style="border:none; width:55%">
+      <h1>{{ cfg.company_name }}</h1>
+      <div class="muted">{{ cfg.company_address }}<br>{{ cfg.contact_email }}</div>
+      {% if tax_numbers %}<div class="muted" style="margin-top:6pt">{{ lb.tax_numbers }}<br>{% for n in tax_numbers %}{{ n }}<br>{% endfor %}</div>{% endif %}
+    </td>
+    <td style="border:none" class="r">
+      <h1>{{ lb.invoice }}</h1>
+      <div>{{ lb.number }} : <b>{{ order.number }}</b></div>
+      <div>{{ lb.date }} : {{ date }}</div>
+      <div>{{ lb.status }} : {{ status }}</div>
+    </td>
+  </tr>
+</table>
+
+<div style="margin: 16pt 0">
+  <b>{{ lb.bill_to }}</b><br>
+  {{ order.billing_name }}<br>
+  {{ order.billing_email }}<br>
+  {% if addr %}{{ addr.line1 }}{% if addr.line2 %}, {{ addr.line2 }}{% endif %}<br>
+  {{ addr.city }} {{ addr.province }} {{ addr.postal_code }}<br>{{ addr.country }}{% endif %}
+</div>
+
+<table>
+  <tr><th style="width:55%">{{ lb.item }}</th><th class="r">{{ lb.price }}</th><th class="r">{{ lb.discount }}</th><th class="r">{{ lb.amount }}</th></tr>
+  {% for l in lines %}
+  <tr>
+    <td><b>{{ l.title }}</b><br><span class="muted">{{ lb.cohort }} {{ l.cohort }}, {{ l.dates }}</span></td>
+    <td class="r">{{ l.price }}</td><td class="r">{{ l.discount }}</td><td class="r">{{ l.net }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<table class="totals" style="margin-top:10pt">
+  <tr><td style="width:70%"></td><td>{{ lb.subtotal }}</td><td class="r">{{ subtotal }}</td></tr>
+  {% if multi %}<tr><td></td><td>{{ lb.multi }}</td><td class="r">{{ multi }}</td></tr>{% endif %}
+  {% if promo %}<tr><td></td><td>{{ lb.promo }} ({{ order.promo_code_text }})</td><td class="r">{{ promo }}</td></tr>{% endif %}
+  {% for t in tax_rows %}<tr><td></td><td>{{ t.label }}</td><td class="r">{{ t.amount }}</td></tr>{% endfor %}
+  <tr class="grand"><td></td><td>{{ lb.total }}</td><td class="r">{{ total }}</td></tr>
+  {% if refunded %}<tr><td></td><td>{{ lb.refunded }}</td><td class="r">{{ refunded }}</td></tr>{% endif %}
+</table>
+
+<p class="muted" style="margin-top:20pt">{{ lb.currency }}{% if method %} {{ lb.method }} : {{ method }}.{% endif %}</p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: letter landscape; margin: 1.5cm; }
+  body { font-family: Helvetica; color: #1f2937; text-align: center; }
+  .frame { border: 3px solid #4338ca; padding: 40pt 30pt; }
+  .company { font-size: 16pt; color: #4338ca; font-weight: bold; }
+  h1 { font-size: 32pt; margin: 18pt 0; }
+  .name { font-size: 28pt; font-weight: bold; margin: 12pt 0; }
+  .bootcamp { font-size: 20pt; font-weight: bold; color: #4338ca; margin: 10pt 0; }
+  .muted { color: #6b7280; font-size: 11pt; }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="company">{{ cfg.company_name }}</div>
+  <h1>{{ lb.certificate }}</h1>
+  <div>{{ lb.certifies }}</div>
+  <div class="name">{{ name }}</div>
+  <div>{{ lb.completed }}</div>
+  <div class="bootcamp">{{ bootcamp }}</div>
+  <div>{{ held }}</div>
+  <p class="muted" style="margin-top:30pt">{{ lb.cert_number }} {{ number }} &nbsp;·&nbsp; {{ lb.issued }} {{ issued }}</p>
+</div>
+</body>
+</html>
