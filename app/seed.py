@@ -113,6 +113,7 @@ BOOTCAMPS = [
 ]
 
 PAGES = {
+    "certifications": ("Certifications", "Certifications", "<h2>Préparez vos certifications</h2><p>[Texte à fournir par le propriétaire : certifications visées (AWS, Kubernetes CKA/CKAD, Terraform, etc.) et accompagnement offert.]</p>", "<h2>Prepare for your certifications</h2><p>[Text to be provided by the owner: target certifications (AWS, Kubernetes CKA/CKAD, Terraform, etc.) and support offered.]</p>"),
     "about": ("À propos", "About", "<h2>Notre histoire</h2><p>[Texte à fournir par le propriétaire.]</p><h2>Notre approche pédagogique</h2><p>Des cohortes en direct, en petits groupes, avec des projets concrets.</p>", "<h2>Our story</h2><p>[Text to be provided by the owner.]</p><h2>Our teaching approach</h2><p>Live cohorts in small groups, with hands-on projects.</p>"),
     "terms": ("Conditions de vente", "Terms of sale", "<p><strong>[Gabarit à faire valider par un avocat avant le lancement.]</strong></p><p>Les prix sont en dollars canadiens et incluent tous les frais; seules la TPS et la TVQ (ou les taxes de votre province) s'ajoutent.</p>", "<p><strong>[Template to be validated by a lawyer before launch.]</strong></p><p>Prices are in Canadian dollars and include all fees; only GST and QST (or your province's taxes) are added.</p>"),
     "privacy": ("Politique de confidentialité", "Privacy policy", "<p><strong>[Gabarit à faire valider par un avocat avant le lancement.]</strong></p><p>Nous recueillons seulement les renseignements nécessaires à votre inscription. Vos données sont hébergées au Canada. Fournisseurs : Stripe (paiement), fournisseur de courriel.</p>", "<p><strong>[Template to be validated by a lawyer before launch.]</strong></p><p>We only collect the information needed for your enrollment. Your data is hosted in Canada. Providers: Stripe (payment), email provider.</p>"),
@@ -186,7 +187,7 @@ def run() -> None:
             for i, (tfr, ten, qfr, qen, afr, aen) in enumerate(FAQ):
                 db.add(FaqItem(theme_fr=tfr, theme_en=ten, question_fr=qfr, question_en=qen, answer_fr=afr, answer_en=aen, position=i, show_on_home=i < 3))
         site_settings.update(db, {
-            "company_name": "Bootcamps Montréal", "company_address": "[Adresse à compléter], Montréal (Québec)",
+            "company_name": "BECOME DEVOPS", "company_address": "[Adresse à compléter], Montréal (Québec)",
             "contact_email": "info@example.com", "privacy_officer_name": "[Nom du responsable]", "privacy_officer_email": "vieprivee@example.com",
         })
         db.commit()

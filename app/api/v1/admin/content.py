@@ -159,7 +159,7 @@ def list_pages(db: DB, _: AdminUser) -> list[dict]:
 
 
 @router.put("/admin/pages/{key}")
-def save_page(key: Literal["about", "terms", "privacy", "refunds"], body: PageIn, db: DB, _: AdminUser) -> dict:
+def save_page(key: Literal["about", "certifications", "terms", "privacy", "refunds"], body: PageIn, db: DB, _: AdminUser) -> dict:
     p = db.scalar(select(Page).where(Page.key == key))
     if not p:
         p = Page(key=key, title_fr=body.title_fr)

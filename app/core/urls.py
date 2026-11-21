@@ -19,6 +19,7 @@ PATHS = {
     "invitation": {"fr": "invitation", "en": "invitation"},
     "bootcamps": {"fr": "bootcamps", "en": "bootcamps"},
     "login": {"fr": "connexion", "en": "login"},
+    "certifications": {"fr": "certifications", "en": "certifications"},
 }
 
 

@@ -17,7 +17,7 @@ from app.core.errors import install_error_handlers
 logging.basicConfig(level=logging.INFO, format='{"time":"%(asctime)s","level":"%(levelname)s","logger":"%(name)s","msg":"%(message)s"}')
 
 app = FastAPI(
-    title="Bootcamps API",
+    title="BECOME DEVOPS API",
     version="1.0.0",
     openapi_url="/api/v1/openapi.json",
     docs_url="/api/v1/docs",

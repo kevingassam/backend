@@ -45,6 +45,7 @@ class Bootcamp(TimestampMixin, Base):
     preparation_en: Mapped[str] = mapped_column(Text, default="")
     level: Mapped[str] = mapped_column(String(20), default="beginner")
     duration_weeks: Mapped[int] = mapped_column(Integer, default=1)
+    projects_count: Mapped[int] = mapped_column(Integer, default=0, server_default="0")  # hands-on projects to complete
     language: Mapped[str] = mapped_column(String(10), default="fr")  # teaching language: fr | en | bilingual
     category_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), ForeignKey("categories.id", ondelete="SET NULL"))
     instructor_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"))

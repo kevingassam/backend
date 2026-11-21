@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from app.models import SiteSettings
 
 DEFAULTS: dict[str, Any] = {
-    "company_name": "Bootcamps",
+    "company_name": "BECOME DEVOPS",
     "company_address": "",
     "contact_email": "info@example.com",
     "contact_phone": "",

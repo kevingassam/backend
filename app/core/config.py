@@ -43,7 +43,7 @@ class Settings(BaseSettings):
 
     # Email
     email_backend: str = "file"  # file | smtp | console
-    email_from: str = "Bootcamps <no-reply@example.com>"
+    email_from: str = "BECOME DEVOPS <no-reply@example.com>"
     admin_alert_email: str = "admin@example.com"
     smtp_host: str = "localhost"
     smtp_port: int = 1025

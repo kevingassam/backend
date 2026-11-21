@@ -86,12 +86,12 @@ def _fold(line: str) -> str:
     return "\r\n ".join(out)
 
 
-def build_ics(events: list[dict], calname: str = "Bootcamps", method: str = "PUBLISH") -> bytes:
+def build_ics(events: list[dict], calname: str = "BECOME DEVOPS", method: str = "PUBLISH") -> bytes:
     """events: {uid, start, end, summary, description, url, status, sequence}"""
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//Bootcamps//Sessions//FR",
+        "PRODID:-//BECOME DEVOPS//Sessions//FR",
         "CALSCALE:GREGORIAN",
         f"METHOD:{method}",
         f"X-WR-CALNAME:{_esc(calname)}",

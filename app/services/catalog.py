@@ -81,6 +81,7 @@ def card(b: Bootcamp, locale: str, seats_left: dict[uuid.UUID, int], few: int, p
         "image_alt": pick(b, "image_alt", locale) or pick(b, "title", locale),
         "level": b.level,
         "duration_weeks": b.duration_weeks,
+        "projects_count": b.projects_count,
         "language": b.language,
         "featured": b.featured,
         "category": {"slug": getattr(b.category, f"slug_{locale}"), "name": pick(b.category, "name", locale)} if b.category else None,

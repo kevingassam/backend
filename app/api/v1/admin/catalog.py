@@ -124,6 +124,7 @@ class BootcampIn(BaseModel):
     tools: list[str] = []
     level: Literal["beginner", "intermediate", "advanced"] = "beginner"
     duration_weeks: int = Field(default=1, ge=1, le=104)
+    projects_count: int = Field(default=0, ge=0, le=100)
     language: Literal["fr", "en", "bilingual"] = "fr"
     category_id: uuid.UUID | None = None
     instructor_id: uuid.UUID | None = None
